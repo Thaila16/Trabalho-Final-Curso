@@ -87,13 +87,66 @@
             margin-bottom: 10%;
             border-radius: 2%;
         }
-        .story{
-            margin-left: 0.5%;
+        .story-wrapper {
+            position: relative;
+            width: 66px;
+            height: 66px;
+            margin: 0 8px;
+            padding: 3px;
             border-radius: 50%;
-            border-width: 6px;
-            border: solid purple;
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            transition: background 0.3s ease;
         }
-        .userstory{
+
+        .story-wrapper.viewed {
+            background: #dbdbdb;
+        }
+
+        .story {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            padding: 0;
+            background-color: white;
+            display: block;
+            object-fit: cover;
+            margin: 0;
+            border: 3px solid white;
+        }
+        .userstory {
             font-size: 15px;
             display: inline-block;
+            text-align: center;
+            margin: 0 4px;
+        }
+        
+        .userstory p {
+            margin-top: 8px;
+            margin-bottom: 0;
+        }
+
+        .userstory a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .like-button {
+            background: none;
+            border: none;
+            padding: 8px;
+            cursor: pointer;
+            font-size: 24px;
+            transition: transform 0.2s;
+        }
+
+        .like-button:hover {
+            transform: scale(1.2);
+        }
+
+        .post-actions {
+            margin-left: 3%;
+            padding: 10px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
         }
