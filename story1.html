@@ -13,12 +13,27 @@
     .direita{
         position: absolute;
         top: 50%;
-        left: 25%;
+        left: 30%;
     }
+    .story-wrapper{
+        position: relative;
+        width: 66px;
+        height: 66px;
+        margin: 0 8px;
+        padding: 3px;
+        border-radius: 50%;
+        transition: background 0.3s ease;
+    }    
 </style>
 <body>
     <div class="direita">
-        <a href=""><button type="submit"><img src="imagens/botão.png" alt="A imagem não carregou"></button></a>
+        <a href="">
+            <button>
+                <div class="story-wrapper">
+                    <img src="imagens/botão.png" alt="" class="story">
+                </div>
+            </button>
+        </a>
     </div>
 </body>
 </html>
