@@ -168,9 +168,23 @@
                             <br>
                             <br>
                             Qual é o seu livro favorito?
-                        </p>
-                    </div>  
-                    
+                        </p><br>
+                        <div class="legenda">
+                            <p>@thailacasal: Jantar Secreto <br>
+                            @gabybiiesek: Verity</p>
+                        </div>
+                        <div>
+                            <form id="comentario">
+                                <label for="co">Comente</label>
+                                <input type="text" required>
+                                <button type="submit" >✔️</button>
+                            </form>
+                        </div>
+                        <div class="coment">
+                            <ul id="listaComent"></ul>
+                        </div>
+                    </div>
+
                     <div class="post2">
                         <div class="usuario">
                             <img src="imagens/eu.jpg" alt="" style="border-radius: 47%; margin-left: 3%; margin-top: 5%;"> 
@@ -246,6 +260,21 @@
     </body>
 
     <script>
+        const forma = document.getElementsById("comentario");
+        const listaa = document.getElementById("coment");
+
+        form.addEventListener("submit", function(event){
+            event.preventDefault();
+
+            const n = document.getElementById("co").value;
+
+            const li = document.createElement("li");
+            li.textContent = `${n}`;
+
+            lista.appendChild(li);
+            form.reset();
+        })
+
         function toggleLike(button) {
             if (button.textContent === '🤍') {
                 button.textContent = '❤️';
@@ -282,6 +311,22 @@
                     }
                 }
             });
+        });
+        
+        const form = document.getElementById("comentario");
+        const lista = document.getElementById("coment");
+
+        form.addEventListener("submit", function(event){
+            event.preventDefault();  // Impede o reload da página
+
+            const n = document.getElementById("co").value;
+            
+            // Criar o item da lista
+            const li = document.createElement("li");
+            li.textContent = `${n}`;
+
+            lista.appendChild(li);  // Adiciona na lista
+            form.reset();  // Limpa os campos
         });
     </script>
 </html>

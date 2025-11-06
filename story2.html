@@ -9,9 +9,45 @@
 <style>
     body{
         background-image: url(imagens/2.png);
-    }    
+    }
+    .direita{
+        position: absolute;
+        top: 50%;
+        left: 29.8%;
+    }
+    .story-wrapper{
+        position: relative;
+        width: 66px;
+        height: 66px;
+        margin: 0 8px;
+        padding: 3px;
+        border-radius: 50%;
+        transition: background 0.3s ease;
+    }
+    .esquerda{
+        position: absolute;
+        top: 50%;
+        left: 63.4%;
+    }   
 </style>
 <body>
-    
+    <div class="direita">
+        <a href="story1.html">
+            <button>
+                <div class="story-wrapper">
+                    <img src="imagens/botão.png" alt="" class="story">
+                </div>
+            </button>
+        </a>
+    </div>
+    <div class="esquerda">
+        <a href="story3.html">
+            <button>
+                <div class="story-wrapper">
+                    <img src="imagens/botãoo.png" alt="" class="story">
+                </div>
+            </button>
+        </a>
+    </div>    
 </body>
 </html>
