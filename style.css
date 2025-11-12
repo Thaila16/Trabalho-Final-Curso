@@ -24,8 +24,8 @@
             display: flex;
         }
         .post1{
-            width: 530px;
-            height: 900px;
+            width: 528px;
+            height: 779px;
             margin-left: 125%;
             margin-right: 30%;
             background-color:  white;   
@@ -149,7 +149,4 @@
             display: flex;
             gap: 15px;
             align-items: center;
-        }
-        .legenda{
-            margin-left: 10px;
         }
