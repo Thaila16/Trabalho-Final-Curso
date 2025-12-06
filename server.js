@@ -7,28 +7,24 @@
 //nodemon server.js
 
 const cors = require('cors');
-
 const express = require('express');
 const app = express();
 const db = require('./db');
 require('dotenv').config();
 
 app.use(express.json());
-app.use(cors())
+app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 
-//Rota POST - Cadastrar novo usuario
+// Rota POST - Cadastrar novo usuario
 app.post('/cadUsuario', (req, res) => {
-  // As variáveis dentro dos {} recebem os dados que vieram do front-end
   const { nome_completo, idade, user_pessoa, email_usuario, senha_usuario } = req.body;
 
-  //Se os dados que vieram do font-end forem em branco
   if (!nome_completo || !idade || !user_pessoa || !email_usuario || !senha_usuario) {
     return res.status(400).json({ error: 'Dados incompletos' });
   }
 
-  //Realiza a inserção dos dados recebidos no banco de dados
   const sql = 'INSERT INTO pessoa (nome_completo, idade, user_pessoa, email_usuario, senha_usuario) VALUES (?,?,?,?,?)';
   db.query(sql, [nome_completo, idade, user_pessoa, email_usuario, senha_usuario], (err, result) => {
     if (err) {
@@ -38,12 +34,11 @@ app.post('/cadUsuario', (req, res) => {
       return res.status(500).json({ error: err.message });
     }
 
-    // Em caso de sucesso encaminha uma mensagem e o id do produto
     res.status(201).json({ message: 'Conta cadastrada com sucesso', id: result.insertId });
   });
 });
 
-//Rota GET - Cadastrar
+// Rota POST - Login
 app.post('/cadConta', (req, res) => {
   const { email_usuario, senha_usuario } = req.body;
 
@@ -61,19 +56,17 @@ app.post('/cadConta', (req, res) => {
       return res.status(401).json({ error: 'Credenciais inválidas' });
     }
 
-    // Login bem-sucedido
-    const user = results[0];
+    const user = results[0]; // Pegando o primeiro usuário encontrado
     res.json({
       message: 'Login bem-sucedido',
       user: {
         id: user.id,
-        email_usuario: email,
-        senha_usuario: password        
+        email_usuario: user.email_usuario, // Corrigido para retornar a variável correta
+        senha_usuario: user.senha_usuario // Corrigido para retornar a variável correta
       }
     });
   });
 });
-
 
 // Inicializa o servidor
 app.listen(PORT, () => {
